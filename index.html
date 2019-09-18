@@ -3,19 +3,21 @@
 
 <head>
   <meta charset="utf-8">
-  <title>The Magical Cat Button</title>
+  <title>Giphy in a Jiffy</title>
 </head>
 
 <body>
-  <button id="cat-button">magical cat button</button>
+  <h1>Giphy in a Jiffy</h1>
+  <input class="searchBar" id="searchInput"></input>
+  <button id="searchButton">Search</button>
   <div id="images">
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
-    // Event listener for our cat-button
-    $("#cat-button").on("click", function() {
+    // Event listener for searchButton
+    $("#searchButton").on("click", function() {
 
-      // Storing our giphy API URL for a random cat image
+      // Storing our giphy API URL 
       var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=ju6uCnRv4cMKILzG5m62vt52JavnVngT";
 
       // Perfoming an AJAX GET request to our queryURL
@@ -31,14 +33,14 @@
           var imageUrl = response.data.image_original_url;
 
           // Creating and storing an image tag
-          var catImage = $("<img>");
+          var searchImage = $("<img>");
 
-          // Setting the catImage src attribute to imageUrl
+          // Setting the searchImage src attribute to imageUrl
           catImage.attr("src", imageUrl);
-          catImage.attr("alt", "cat image");
+          catImage.attr("alt", "search-image");
 
-          // Prepending the catImage to the images div
-          $("#images").prepend(catImage);
+          // Prepending the searchImage to the images div
+          $("#images").prepend(searchImage);
         });
     });
   </script>
