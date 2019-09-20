@@ -1,5 +1,46 @@
 body {
-    font-family: 'Indie Flower', cursive;
-    background-color: black;
-    font: white;
+    background-image: url("../images/background.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+#body
+  {
+    font-family: 'Josefin Sans', sans-serif;
+    font: rgb(230, 227, 227);
+}
+#music 
+button {
+    position: absolute;
+    left: 20px;
+    width: 100px;
+    display: block;
+    font: rgb(48, 47, 47);
+    margin: 2px;
+    padding: 6px;
+    text-align: center;
+    align-content: left;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+}
+.button:hover {
+  background-color: rgb(255, 255, 255);
+  color: white;
+}
+#header {
+    align-content: center;
+    text-align: center;
+    font-size: 4em;
+    color: rgb(71, 70, 70);
+    text-shadow: 2px 1px #707070;
+}
+.container-fluid  {
+    align-content: center;
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+.searchArea {
+    position: absolute;
+    right: 20px;
 }

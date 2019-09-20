@@ -3,23 +3,23 @@
 
 <head>
   <meta charset="utf-8">
-  <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css"/>
-  <script src="assets/javascript/app.js"> </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"/>
   <title>Giphy in a Jiffy</title>
 </head>
 
 <body>
-  <h1>Giphy in a Jiffy</h1>
-  <input class="searchBar" id="searchInput"></input>
-  <button id="searchButton">Search</button>
-  <button data-topic="music"></button>
+  <div class="container-fluid" id="body">
+  <h1 id="header">Giphy in a Jiffy</h1>
+  <div class="searchArea"><input class="searchBar" id="searchInput"></input>
+  <button id="searchButton">Search</button></div>
+  <div class="container-fluid" id="music"></div>
   <div id="giphyImages"></div>
-  
- 
-    
+</div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="assets/javascript/app.js"> </script>
+
  
 </body>
 
