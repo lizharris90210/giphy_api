@@ -17,10 +17,7 @@ $(document).ready(function() {
     "Tambourine",
     "Harp",
     "Violin",
-    "Stand-up Bass",
-    "Xylophone",
-    "Glockenspiel",
-    "Harmonica"
+    "Stand-up Bass"
   ];
 
   for(var i= 0; i < topics.length; i++) {
