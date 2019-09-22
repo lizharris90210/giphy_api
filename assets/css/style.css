@@ -1,28 +1,29 @@
-*   {
+* {
+    background: #28283e;
+    color: grey;
     font-family: 'Josefin Sans', sans-serif;
-}
-body {
-    background-color: #000000;
-    background-image: url("../images/background.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-} 
-button {
-    margin-right: 15px;
-    margin-left: 15px;
-    padding: 6px;
-    background: #b11c75;
-    border: solid #883881;
-}
-#header {
-    align-content: center;
+    background-image: url ("images/corner-ornament.gif");
+  }
+  #header {
     text-align: center;
-    font-size: 5em;
-    color:#b11c75;
-    text-shadow: 3px 2px #883881;
-}
-#navbar {
-    float: right;
-    align-content: right;
-    max-width: 300px;
-}
+    font-size: 4em;
+  }
+  #tagline  {
+    font-size: 2em;
+    text-align: center;
+  }
+  .searchArea {
+    margin: 6px 6px 6px 15px ;
+  }
+  button  {
+    margin: 3px;
+    background-color: silver;
+    color: #28283e;
+    border: grey;
+    border-style: outset;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+  button:hover {
+    background-color: #28283a; 
+    color: white;
+  }
