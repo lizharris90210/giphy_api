@@ -25,7 +25,7 @@ $(document).ready(function() {
     $("#music").append(button);
   }
 
-  $(".instrument").on("click", function() {
+  $(document).on("click", ".instrument", function() {
     console.log(this.id);
     var thisButton = this.id;
     var apiKey = "ju6uCnRv4cMKILzG5m62vt52JavnVngT";
@@ -34,13 +34,12 @@ $(document).ready(function() {
       apiKey +
       "&q=" +
       thisButton +
-      "&limit=5";
+      "&limit=10";
 
     $.ajax({
       url: queryURL,
       method: "GET"
-    })
-    .then(function(response) {
+    }).then(function(response) {
       var results = response.data;
       console.log(results);
 
@@ -50,11 +49,16 @@ $(document).ready(function() {
           var rating = results[i].rating;
           var p = $("<p>").text("Rating: " + rating);
           var gifImage = $("<img>");
-          gifImage.attr("src", results[i].images.fixed_height.url);
           gifDiv.append(p);
-          gifDiv.append(gifImage);
-          $("#giphyImages").prepend(gifDiv);
-        }
+        gifDiv.append(gifImage);
+        gifImage.addClass('gifImage');
+        $("#giphyImages").prepend(gifDiv);
+        gifImage.attr("src", results[i].images.fixed_height_still.url);
+        gifImage.attr("data-still", results[i].images.fixed_height_still.url);
+        gifImage.attr("data-animate", results[i].images.fixed_height.url);
+        gifImage.attr("data-state", "still"); 
+        $("giphyImages").append(gifDiv);
+      }
       }
     });
   });
@@ -76,6 +80,18 @@ var topics = [
   "Harp",
   "Violin"
 ];
+$(document).on('click', '.gifImage', function() {
+  var state = $(this).attr("data-state");
+  if (state === "still") {
+    $(this).attr("src", $(this).attr("data-animate"));
+    $(this).attr("data-state", "animate");
+  } else {
+    $(this).attr("src", $(this).attr("data-still"));
+    $(this).attr("data-state", "still");
+  }
+  console.log(state);
+});
+
 $("#searchButton").on("click", function() {
   var apiKey = "ju6uCnRv4cMKILzG5m62vt52JavnVngT";
   var userSearch = $("#searchInput").val();
@@ -84,21 +100,24 @@ $("#searchButton").on("click", function() {
     apiKey +
     "&q=" +
     userSearch +
-    "&limit=5";
+    "&limit=10";
 
   $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function(response) {
+    console.log(response)
     var results = response.data;
+    var input = $("#searchInput").val();
+    console.log(input)
+    var button = $("<button>")
+      .text(input)
+      .addClass("instrument")
+      .attr({ id: input });
+    $("#music").append(button);
+
     for (var i = 0; i < results.length; i++) {
       // !!!buttons show up but not search input text and not functional!!!
-      var input = $("#searchInput");
-      var button = $("<button>")
-        .text(input)
-        .addClass("instrument")
-        .attr({ id: topics[i] });
-      $("#music").append(button);
 
       if (results[i].rating !== "r") {
         var gifDiv = $("<div>");
@@ -111,11 +130,8 @@ $("#searchButton").on("click", function() {
         gifImage.attr("src", results[i].images.fixed_height_still.url);
         gifImage.attr("data-still", results[i].images.fixed_height_still.url);
         gifImage.attr("data-animate", results[i].images.fixed_height.url);
-        gifImage.attr("data-state", "still");
-        gifImage.prepend(p);
-        gifDiv.prepend(showImage);
-        gifDiv.prepend(instrumentImage);
-        $("#music").append(gifDiv);
+        gifImage.attr("data-state", "still"); 
+        $("giphyImages").append(gifDiv);
       }
     }
   });
